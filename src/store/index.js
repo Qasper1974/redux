@@ -1,23 +1,23 @@
-const redux = require('redux');
-
-const store = redux.createStore(counterReducer);
+import { createStore } from 'redux';
 
 const counterReducer = (state = {
     counter: 0
 }, action) => {
     if ( action.type === 'increment') {
-        counter: state.counter + 1;
+        return {
+            counter: state.counter + 1
+        }
     };
     if ( action.type === 'decrement') {
-        counter: state.counter - 1;
+        return {
+            counter: state.counter - 1
+        }
     };
     return {
         counter: 0
     }
 }
 
+const store = createStore(counterReducer);
 
-
-console.log(store.dispatch({
-    type: 'increment'
-}));
+export default store;
